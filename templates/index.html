@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Neil's Mar's Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+	<div class="container-fluid">
+		<div class="jumbotron text-center">
+		  <h1>The Red Planet</h1>
+		  <p>More than just a planet with a solid core.</p>
+		  <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Live Data!</a></p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h3>
+				Latest Mars Headline
+				</h3>
+				<h4>
+				{{mars.title}}
+				</h4>
+				<p>
+				{{mars.body_p}}
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-8">
+				<h3>
+				Latest Mars Image
+				</h3>
+				<img src="{{ mars.background_img }}" alt="Mars Latest" width=100%>
+			</div>
+			<div class="col-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Current weather on Mars</h5>
+						<p class="card-text">{{mars.tweet_text}}</p>
+					</div>
+				</div>
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Mars Facts</h5>
+						<table border="1" class="w3-table w3-striped">  <tbody>    <tr>      <td>Equatorial Diameter:</td>      <td>6,792 km</td>    </tr>    <tr>      <td>Polar Diameter:</td>      <td>6,752 km</td>    </tr>    <tr>      <td>Mass:</td>      <td>6.39 × 10^23 kg (0.11 Earths)</td>    </tr>    <tr>      <td>Moons:</td>      <td>2 (Phobos &amp; Deimos)</td>    </tr>    <tr>      <td>Orbit Distance:</td>      <td>227,943,824 km (1.38 AU)</td>    </tr>    <tr>      <td>Orbit Period:</td>      <td>687 days (1.9 years)</td>    </tr>    <tr>      <td>Surface Temperature:</td>      <td>-87 to -5 °C</td>    </tr>    <tr>      <td>First Record:</td>      <td>2nd millennium BC</td>    </tr>    <tr>      <td>Recorded By:</td>      <td>Egyptian astronomers</td>    </tr>  </tbody></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='container'>
+		<div class='row'>
+			{%for x in mars.hemispheres%}
+			<div class="col-6">
+			<h3>{{x.title}}</h3>
+			<img src="{{ x.img_url }}" alt={{x.title}} width=100%>
+			</div>
+			{%endfor%} 
+		</div>
+	</div>
+</body>
+
+</html>
